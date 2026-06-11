@@ -1,0 +1,206 @@
+/* Emergency Button */
+.emergency-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
+}
+
+.emergency-btn {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff4444 0%, #cc0000 100%);
+  color: var(--text-white);
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: 8px solid rgba(255, 68, 68, 0.3);
+  cursor: pointer;
+  outline: none;
+  animation: pulse 2s infinite;
+  transition: var(--transition);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 68, 68, 0.5);
+}
+
+.emergency-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 50px rgba(255, 68, 68, 0.8);
+  border-color: rgba(255, 68, 68, 0.5);
+}
+
+.emergency-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 20px rgba(255, 68, 68, 0.6);
+}
+
+/* Buzzer Overlay */
+.buzzer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-white);
+  padding: 2rem;
+  animation: flashRed 1s infinite;
+}
+
+.buzzer-content {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--danger);
+  border-radius: var(--border-radius-lg);
+  padding: 3rem;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 50px rgba(255, 68, 68, 0.5);
+  animation: shake 0.5s ease infinite;
+}
+
+.buzzer-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  color: var(--danger);
+}
+
+.buzzer-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--danger);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.buzzer-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.buzzer-details {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  text-align: left;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.buzzer-detail-item {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.buzzer-detail-item:last-child {
+  margin-bottom: 0;
+}
+
+.buzzer-detail-label {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  margin-right: 0.5rem;
+}
+
+.buzzer-btn {
+  padding: 1rem 2.5rem;
+  background: var(--text-white);
+  color: var(--danger-dark);
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-radius: var(--border-radius-full);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+  transition: var(--transition);
+}
+
+.buzzer-btn:hover {
+  transform: scale(1.05);
+  background: var(--danger);
+  color: var(--text-white);
+  box-shadow: 0 4px 25px rgba(255, 68, 68, 0.5);
+}
+
+/* Feel Unsafe Toggle */
+.unsafe-card {
+  background: rgba(255, 152, 0, 0.05);
+  border: 1px solid rgba(255, 152, 0, 0.2);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.unsafe-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.unsafe-title {
+  font-weight: 600;
+  color: var(--warning);
+}
+
+.unsafe-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.unsafe-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.unsafe-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.unsafe-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--text-muted);
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.unsafe-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .unsafe-slider {
+  background-color: var(--warning);
+}
+
+input:checked + .unsafe-slider:before {
+  transform: translateX(24px);
+}
